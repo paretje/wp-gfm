@@ -247,7 +247,7 @@ class WP_GFM
 				}
 			}
 		}
-		$content = preg_replace_callback( '/\[markdown\](.*?)\[\/markdown\]/s', create_function( '$matches', 'return wp_markdown($matches[1]);' ), $content );
+		$content = preg_replace_callback( '/\[markdown\](.*?)\[\/markdown\]/s', create_function( '$matches', 'return "[code html]" . wp_markdown($matches[1]) . "[/code]";' ), $content );
 		$content = preg_replace_callback( '/\[gfm\](.*?)\[\/gfm\]/s', create_function( '$matches', 'return wp_fgm($matches[1]);' ), $content );
 		return $content;
 	}
